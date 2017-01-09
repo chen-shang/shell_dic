@@ -2,6 +2,8 @@
 if [ $# = 1 ] && [ $1 = '?' ];then
   echo "sh dic.sh {需要翻译的单词或句子}" 
   exit
+elif [ $# = 0 ];then
+  exit
 fi
 p=$*
 echo '>>>>>>>>>' ${p} '<<<<<<<<<'
