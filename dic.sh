@@ -10,7 +10,7 @@ echo '>>>>>>>>>' ${p} '<<<<<<<<<'
 # 转换成 url 编码，主要针对汉字进行
 # query=`echo $p | tr -d '\n' | xxd -plain | sed 's/\(..\)/%\1/g'`
 
-history=`less ~/.dichistory |grep -w "$p===>"| awk -F "===>" '{print $2}'`
+history=`less ~/.dichistory |grep -iw "$p===>"| awk -F "===>" '{print $2}'`
 
 if [ x"$history" = 'x' ];then
   result=`curl http://fanyi.youdao.com/openapi.do?keyfrom=macSay\&key=1081776100\&type=data\&doctype=json\&version=1.1 --data-urlencode q="$p"`
