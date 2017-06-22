@@ -1,9 +1,11 @@
 # dic
-a dictionary tool in shell 
+a dictionary tool in shell  for mac
 
 该脚本是一个可以在终端使用的翻译[英->汉,汉->英]脚本,借用 [有道词典的公共接口](http://fanyi.youdao.com/openapi?path=data-mode) 来进行查询
 
 可以设置别名 `alias dic='sh /script/dic.sh'` 以后就可以用 `dic` 这个命令来调用了
+
+需要先安装 `jq` 这个工具，mac 用`brew install jq`安装 
 
 # 示例
 
