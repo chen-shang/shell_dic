@@ -1,16 +1,16 @@
 #!/bin/bash
 p=$*
-if [ $# = 1 ] && [ $p = '?' ];then
+if [ $# = 1 ] && [ $p = '?' ] || [ $p = '?' ]; then
   echo "sh dic.sh {需要翻译的单词或句子}" 
   exit
-elif [ $# = 0 ];then
+ elif [ $# = 0 ]; then
   exit
 fi
 echo '>>>>>>>>>' ${p} '<<<<<<<<<'
 # 转换成 url 编码，主要针对汉字进行
 # query=`echo $p | tr -d '\n' | xxd -plain | sed 's/\(..\)/%\1/g'`
 
-history=`less ~/.dichistory |grep -iw "$p===>"| awk -F "===>" '{print $2}'`
+history=`cat ~/.dichistory |grep -i "$p===>"| awk -F "===>" '{print $2}'`
 
 function search(){
   if [ "$code" = "20" ];then 
@@ -39,7 +39,6 @@ function search(){
   fi
 }
 
-
 if [ x"$history" = 'x' ];then
   result=`curl http://fanyi.youdao.com/openapi.do?keyfrom=macSay\&key=1081776100\&type=data\&doctype=json\&version=1.1 --data-urlencode q="$p"`
   code=`echo $result | jq '.errorCode'`
@@ -54,4 +53,3 @@ else
   code=`echo $result | jq '.errorCode'`
   search
 fi
-
