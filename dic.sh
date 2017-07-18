@@ -10,7 +10,7 @@ echo '>>>>>>>>>' ${p} '<<<<<<<<<'
 # 转换成 url 编码，主要针对汉字进行
 # query=`echo $p | tr -d '\n' | xxd -plain | sed 's/\(..\)/%\1/g'`
 
-history=`cat ~/.dichistory |grep -i "\\n$p===>"| awk -F "===>" '{print $2}'`
+history=`cat ~/.dichistory |grep -i "$p===>"| awk -F "===>" '{print $2}'`
 
 function search(){
   if [ "$code" = "20" ];then 
@@ -46,7 +46,7 @@ if [ x"$history" = 'x' ];then
   if [ "$code" = "0" ];then
     # 记录查询历史
     now=`date "+%Y-%m-%d %H:%M:%S"`
-    `echo $now"===\n$p===>"$result >> ~/.dichistory`
+    `echo $now"===$p===>"$result >> ~/.dichistory`
   fi
 else
   result=$history 
