@@ -1,6 +1,6 @@
 #!/bin/bash
 p=$*
-if [ $# = 1 ] && [ $p = '?' ] || [ $p = '?' ]; then
+if [ $# = 1 ] && [ $p = '?' ] ; then
   echo "sh dic.sh {需要翻译的单词或句子}" 
   exit
  elif [ $# = 0 ]; then
