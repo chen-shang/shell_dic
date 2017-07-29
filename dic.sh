@@ -10,7 +10,7 @@ echo '>>>>>>>>>' ${p} '<<<<<<<<<'
 # 转换成 url 编码，主要针对汉字进行
 # query=`echo $p | tr -d '\n' | xxd -plain | sed 's/\(..\)/%\1/g'`
 
-history=`cat ~/.dichistory |grep -i "$p===>"| awk -F "===>" '{print $2}'`
+history=`cat ~/.dichistory |grep -i "===$p===>"| awk -F "===>" '{print $2}'`
 
 function search(){
   if [ "$code" = "20" ];then 
